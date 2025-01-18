@@ -1,9 +1,20 @@
-export default function Categories(){
-    return(
-        <ul className="todo-categories">
-            <li className="todo-categories-btn todo-categories-btn__active">Все</li>
-            <li className="todo-categories-btn">Завершенные</li>
-            <li className="todo-categories-btn">Не завершенные</li>
-          </ul>
-    )
+// import { useState } from "react";
+import CategoriesItem from "./CategoriesItem";
+
+export default function Categories({categories, activeCategory, setActiveCategory}) {
+
+  return (
+    <ul className="todo-categories">
+
+        {categories.map((item, index) => (
+            <CategoriesItem
+            activeCategory={activeCategory}
+            setActiveCategory={setActiveCategory}
+            name={item}
+            index={index}
+            key={item}
+          />
+        ))}
+    </ul>
+  );
 }

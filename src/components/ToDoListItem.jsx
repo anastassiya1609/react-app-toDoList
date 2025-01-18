@@ -1,19 +1,23 @@
 import { FaTrashAlt } from "react-icons/fa";
 
-export default function ToDoListItem({ title, isCompleted }) {
+export default function ToDoListItem({isCompleted, title, toggleTaskCompletion, deleteTask}) {
   const classNames = isCompleted ? "todo todo__completed" : "todo";
-  console.log(classNames);
+  
+  function toggleTask(){
+    toggleTaskCompletion(title);
+  }
+
   return (
     <li className={classNames}>
       <span className="todo-border"></span>
-      <div className="todo-part">
-        <div className="todo-toggle__outer">
+      <div className="todo-part" >
+        <div className="todo-toggle__outer " onClick={toggleTask}>
           {isCompleted ? <div class="todo-toggle__inner"></div> : null}
         </div>
         <h4 className="todo-title">{title}</h4>
       </div>
       <div className="todo-part">
-        <FaTrashAlt className=" todo-delete"></FaTrashAlt>
+        <FaTrashAlt className=" todo-delete" onClick={() => deleteTask(title)}></FaTrashAlt>
       </div>
     </li>
   );

@@ -226,3 +226,6 @@ body {
   background-color: var(--hover-blue);
   cursor: pointer;
 }
+.form-hidden{
+  visibility: hidden;
+}
